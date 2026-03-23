@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groq Research Studio | ST-WQHRNet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body class="app-shell text-slate-800 antialiased transition-colors duration-300">
+    <div class="min-h-screen pb-10">
+      <header class="sticky top-0 z-50 pt-6 pb-2">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="glass-card theme-navbar flex items-center justify-between gap-4 rounded-3xl px-6 py-4 shadow-premium-lg">
+            <div class="flex min-w-0 items-center gap-4">
+              <div class="gradient-primary relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl text-base font-black text-white shadow-lg shadow-primary-500/30">
+                TN
+                <span class="absolute -bottom-1 -right-1 h-4 w-4 rounded-full bg-emerald-400 ring-4 ring-white pulse-dot"></span>
+              </div>
+              <div class="min-w-0">
+                <h1 class="truncate text-base font-bold text-slate-900 sm:text-lg tracking-tight">ST-WQHRNet Groq Research Studio</h1>
+                <p class="truncate text-xs text-slate-500 font-medium mt-0.5">Management Intelligence - Scenario Lab - Conversational Analyst</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="hidden items-center gap-2.5 rounded-full bg-emerald-50 px-4 py-2 text-xs font-semibold text-emerald-700 sm:flex border border-emerald-100">
+                <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500 pulse-dot"></span>
+                Live System
+              </div>
+              <a href="/" class="btn-premium inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50 hover:border-slate-300">Dashboard</a>
+              <button type="button" class="btn-premium inline-flex items-center justify-center rounded-xl border border-primary-200 bg-primary-50 px-4 py-2.5 text-xs font-semibold text-primary-700 shadow-sm">Groq</button>
+              <button type="button" id="darkToggle" class="btn-premium inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50 hover:border-slate-300">Dark</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6 lg:px-8">
+        <section class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <aside class="space-y-6 lg:col-span-4 xl:col-span-3">
+            <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+              <h2 class="text-base font-bold text-slate-900">Research Inputs</h2>
+              <p class="mt-1 text-xs text-slate-500">Base selection + scenario + comparison target</p>
+
+              <div class="mt-4 space-y-3">
+                <div>
+                  <label class="text-xs font-semibold text-slate-700 mb-2 block">State</label>
+                  <select id="stateSelect" class="input-premium theme-input select-control"></select>
+                </div>
+                <div>
+                  <label class="text-xs font-semibold text-slate-700 mb-2 block">District</label>
+                  <select id="districtSelect" class="input-premium theme-input select-control"></select>
+                </div>
+                <div>
+                  <label class="text-xs font-semibold text-slate-700 mb-2 block">Block</label>
+                  <select id="blockSelect" class="input-premium theme-input select-control"></select>
+                </div>
+                <div>
+                  <label class="text-xs font-semibold text-slate-700 mb-2 block">Village</label>
+                  <select id="villageSelect" class="input-premium theme-input select-control"></select>
+                </div>
+                <div>
+                  <label class="text-xs font-semibold text-slate-700 mb-2 block">Year</label>
+                  <select id="yearSelect" class="input-premium theme-input select-control"></select>
+                </div>
+              </div>
+
+              <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <div class="text-xs font-bold text-slate-700">Scenario Controls</div>
+                <div class="mt-3 grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-[11px] font-semibold text-slate-600">Rainfall %</label>
+                    <input id="scRain" type="number" step="1" value="0" class="input-premium theme-input input-control" />
+                  </div>
+                  <div>
+                    <label class="text-[11px] font-semibold text-slate-600">Temp C</label>
+                    <input id="scTemp" type="number" step="0.1" value="0" class="input-premium theme-input input-control" />
+                  </div>
+                  <div>
+                    <label class="text-[11px] font-semibold text-slate-600">Agri %</label>
+                    <input id="scAgri" type="number" step="1" value="0" class="input-premium theme-input input-control" />
+                  </div>
+                  <div>
+                    <label class="text-[11px] font-semibold text-slate-600">Population %</label>
+                    <input id="scPop" type="number" step="1" value="0" class="input-premium theme-input input-control" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <div class="text-xs font-bold text-slate-700">Comparison Target</div>
+                <div class="mt-3 space-y-3">
+                  <div>
+                    <label class="text-[11px] font-semibold text-slate-600">District</label>
+                    <select id="compareDistrict" class="input-premium theme-input select-control"></select>
+                  </div>
+                  <div>
+                    <label class="text-[11px] font-semibold text-slate-600">Year</label>
+                    <select id="compareYear" class="input-premium theme-input select-control"></select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 grid grid-cols-1 gap-2">
+                <button id="runGroqBtn" type="button" class="btn-premium gradient-primary inline-flex w-full items-center justify-center rounded-xl px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40">Generate Advanced Analytics</button>
+                <button id="exportPdfBtn" type="button" class="btn-premium inline-flex w-full items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50" disabled>Export PDF Appendix</button>
+              </div>
+              <p id="statusText" class="mt-3 text-xs text-slate-500">Ready</p>
+            </div>
+          </aside>
+
+          <section class="space-y-6 lg:col-span-8 xl:col-span-9">
+            <div class="grid grid-cols-2 gap-4 xl:grid-cols-4">
+              <div class="theme-card rounded-2xl border border-white/80 bg-white p-4 shadow-premium" id="kpiRisk">Risk Index: --</div>
+              <div class="theme-card rounded-2xl border border-white/80 bg-white p-4 shadow-premium" id="kpiWqi">WQI: --</div>
+              <div class="theme-card rounded-2xl border border-white/80 bg-white p-4 shadow-premium" id="kpiHhi">HHI: --</div>
+              <div class="theme-card rounded-2xl border border-white/80 bg-white p-4 shadow-premium" id="kpiCompare">Compare Delta: --</div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+              <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+                <h3 class="text-sm font-bold text-slate-900">Risk Trajectory (Baseline vs Scenario)</h3>
+                <canvas id="riskTrendChart" class="mt-3 h-56 w-full"></canvas>
+              </div>
+              <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+                <h3 class="text-sm font-bold text-slate-900">Scenario & Comparison Delta</h3>
+                <canvas id="scenarioDeltaChart" class="mt-3 h-56 w-full"></canvas>
+              </div>
+            </div>
+
+            <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+              <h3 class="text-base font-bold text-slate-900">Management Strategy Board</h3>
+              <div class="mt-3 overflow-auto rounded-xl border border-slate-200">
+                <table class="w-full min-w-[880px] text-left text-xs">
+                  <thead class="bg-slate-50 text-slate-700">
+                    <tr>
+                      <th class="px-3 py-2">Priority</th>
+                      <th class="px-3 py-2">Action</th>
+                      <th class="px-3 py-2">Timeline</th>
+                      <th class="px-3 py-2">Owner</th>
+                      <th class="px-3 py-2">Expected WQI Gain</th>
+                      <th class="px-3 py-2">Expected HHI Cut</th>
+                      <th class="px-3 py-2">Cost</th>
+                    </tr>
+                  </thead>
+                  <tbody id="strategyTableBody" class="bg-white text-slate-700"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+              <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+                <h3 class="text-base font-bold text-slate-900">Risk Matrix & Scorecard</h3>
+                <div class="mt-3 overflow-auto rounded-xl border border-slate-200">
+                  <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-50 text-slate-700">
+                      <tr>
+                        <th class="px-3 py-2">Dimension</th>
+                        <th class="px-3 py-2">Likelihood</th>
+                        <th class="px-3 py-2">Impact</th>
+                        <th class="px-3 py-2">Zone</th>
+                      </tr>
+                    </thead>
+                    <tbody id="analyticsTableBody" class="bg-white text-slate-700"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+                <h3 class="text-base font-bold text-slate-900">Groundwater Analyst Chatbot</h3>
+                <div id="chatMessages" class="mt-3 h-64 overflow-auto rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs"></div>
+                <div class="mt-3 flex gap-2">
+                  <input id="chatInput" type="text" placeholder="Ask about risk, strategy, scenario, uncertainty..." class="input-premium theme-input input-control" />
+                  <button id="chatSendBtn" type="button" class="btn-premium gradient-accent rounded-xl px-4 py-2 text-xs font-semibold text-white">Send</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+              <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+                <h3 class="text-base font-bold text-slate-900">Insight Panel</h3>
+                <pre id="insightPanel" class="mt-3 max-h-44 overflow-auto whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-700">Run analytics to populate insights.</pre>
+              </div>
+              <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+                <h3 class="text-base font-bold text-slate-900">Scenario Analysis</h3>
+                <pre id="scenarioPanel" class="mt-3 max-h-44 overflow-auto whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-700">Run analytics to populate scenario analysis.</pre>
+              </div>
+              <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+                <h3 class="text-base font-bold text-slate-900">Uncertainty Narrative</h3>
+                <pre id="uncertaintyPanel" class="mt-3 max-h-44 overflow-auto whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-700">Run analytics to populate uncertainty narrative.</pre>
+              </div>
+              <div class="theme-card rounded-3xl border border-white/80 bg-white p-6 shadow-premium-lg">
+                <h3 class="text-base font-bold text-slate-900">District Comparison & Journal Draft</h3>
+                <pre id="comparisonPanel" class="mt-3 max-h-36 overflow-auto whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-700">Run analytics to populate district comparison.</pre>
+                <pre id="journalPanel" class="mt-3 max-h-36 overflow-auto whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs text-slate-700">Run analytics to populate journal summary.</pre>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='groq.js') }}"></script>
+  </body>
+</html>

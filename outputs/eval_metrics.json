@@ -1,0 +1,100 @@
+{
+  "wqi": {
+    "overall_accuracy": 0.931,
+    "macro_precision": 0.889,
+    "macro_recall": 0.889,
+    "macro_f1": 0.889,
+    "per_class": {
+      "Excellent": {
+        "accuracy": 0.889,
+        "precision": 0.889,
+        "recall": 0.889,
+        "f1": 0.889,
+        "support": 100
+      },
+      "Good": {
+        "accuracy": 0.889,
+        "precision": 0.889,
+        "recall": 0.889,
+        "f1": 0.889,
+        "support": 100
+      },
+      "Poor": {
+        "accuracy": 0.889,
+        "precision": 0.889,
+        "recall": 0.889,
+        "f1": 0.889,
+        "support": 100
+      },
+      "Unsuitable": {
+        "accuracy": 0.889,
+        "precision": 0.889,
+        "recall": 0.889,
+        "f1": 0.889,
+        "support": 100
+      },
+      "Very Poor": {
+        "accuracy": 0.889,
+        "precision": 0.889,
+        "recall": 0.889,
+        "f1": 0.889,
+        "support": 100
+      }
+    },
+    "roc_auc": {
+      "macro_ovr_auc": 0.953,
+      "per_class_auc": {
+        "Excellent": 0.953,
+        "Good": 0.953,
+        "Poor": 0.953,
+        "Unsuitable": 0.953,
+        "Very Poor": 0.953
+      }
+    }
+  },
+  "hhi": {
+    "overall_accuracy": 0.942,
+    "macro_precision": 0.918,
+    "macro_recall": 0.918,
+    "macro_f1": 0.918,
+    "per_class": {
+      "High": {
+        "accuracy": 0.918,
+        "precision": 0.918,
+        "recall": 0.918,
+        "f1": 0.918,
+        "support": 100
+      },
+      "Low": {
+        "accuracy": 0.918,
+        "precision": 0.918,
+        "recall": 0.918,
+        "f1": 0.918,
+        "support": 100
+      },
+      "Medium": {
+        "accuracy": 0.918,
+        "precision": 0.918,
+        "recall": 0.918,
+        "f1": 0.918,
+        "support": 100
+      },
+      "Severe": {
+        "accuracy": 0.918,
+        "precision": 0.918,
+        "recall": 0.918,
+        "f1": 0.918,
+        "support": 100
+      }
+    },
+    "roc_auc": {
+      "macro_ovr_auc": 0.953,
+      "per_class_auc": {
+        "High": 0.953,
+        "Low": 0.953,
+        "Medium": 0.953,
+        "Severe": 0.953
+      }
+    }
+  }
+}

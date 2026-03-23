@@ -1,0 +1,58 @@
+﻿project_name: ST-WQHRNet
+
+data:
+  csv_path: C:\Users\Asus\Downloads\ST-WQHRNet(updated)\ST-WQHRNet\TN_DomainConstrained_WQI_HHI_2018_2025_REALISTIC_FULL.csv
+  artifacts_dir: C:\Users\Asus\Downloads\ST-WQHRNet(updated)\ST-WQHRNet\st_wqhrnet\artifacts
+  start_year: 2015
+  train_end_year: 2022
+  val_year: 2023
+  test_year: 2024
+  season_order: [Pre-Monsoon, Monsoon, Post-Monsoon]
+  max_time_index: 30
+  future_start_year: 2025
+  future_end_year: 2050
+
+model:
+  d_model: 192
+  n_heads: 6
+  n_layers: 4
+  ff_dim: 384
+  dropout: 0.1
+  district_emb_dim: 8
+  block_emb_dim: 16
+  village_emb_dim: 32
+  season_emb_dim: 4
+  source_emb_dim: 4
+  spatial_hidden: 64
+  spatial_dim: 32
+  district_hidden: 64
+  district_dim: 16
+  phys_alpha: 0.6
+  phys_beta: 0.2
+  phys_gamma: 0.2
+  phys_sigma: 1.0
+  focal_gamma: 2.5
+  focal_alpha: 0.25
+
+train:
+  batch_size: 256
+  epochs: 35
+  lr: 0.0005
+  weight_decay: 0.0001
+  early_stopping: 8
+  num_workers: 4
+  seed: 42
+  amp: true
+  use_focal_wqi: false
+  wqi_loss_weight: 1.4
+  hhi_loss_weight: 0.1
+  wqi_pretrain_epochs: 10
+
+inference:
+  use_jitter: true
+
+groq:
+  api_key: "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"
+  model: llama-3.1-8b-instant
+  temperature: 0.2
+  max_tokens: 1200
