@@ -10,6 +10,10 @@ python st_wqhrnet\train.py
 python st_wqhrnet\eval.py
 python st_wqhrnet\predict.py --district "Ariyalur" --year 2030
 ```
+<img width="1587" height="2245" alt="ARC-F26 (2)" src="https://github.com/user-attachments/assets/132916f8-ad6d-411c-92d7-0734ebe7a7e5" />
+
+
+
 
 **Web Application**
 
