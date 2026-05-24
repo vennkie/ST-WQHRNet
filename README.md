@@ -1,7 +1,9 @@
-[README.md](https://github.com/user-attachments/files/28192918/README.md)
 # 🌊 ST-WQHRNet: A Spatio-Temporal Transformer for Multi-Task Groundwater Quality and Health Risk Assessment in Tamil Nadu
 
-# PRODUCT PREVIEW: https://drive.google.com/file/d/13OqrraxRf4aajwzO4FncQ4xlKfB_1g-A/view?usp=sharing
+> **📽️ Product Preview:** [Watch on Google Drive](https://drive.google.com/file/d/13OqrraxRf4aajwzO4FncQ4xlKfB_1g-A/view?usp=sharing)
+
+---
+
 ## 🌐 Project Overview
 
 Groundwater quality degradation poses significant risks to public health, agricultural sustainability, and environmental stability — particularly in Tamil Nadu, where rapid urbanization, industrial discharge, and intensive agriculture continuously degrade groundwater across districts, blocks, and villages.
@@ -115,7 +117,9 @@ The ST-WQHRNet architecture is a layered deep learning pipeline consisting of th
 
 **Stage III — Multi-Task Risk Assessment:** Physically consistent contamination states feed into parallel WQI and HHI classification heads trained jointly using a weighted multi-task cross-entropy loss.
 
-<img width="1587" height="2245" alt="ARC-F26 (2)" src="https://github.com/user-attachments/assets/119765ff-c1e0-48d8-ae57-0f5853085f18" />
+![ST-WQHRNet Architecture](https://github.com/user-attachments/assets/119765ff-c1e0-48d8-ae57-0f5853085f18)
+
+---
 
 ## 🔬 Methodology
 
@@ -361,7 +365,8 @@ Final parallel classification heads generating groundwater quality and health ri
 ---
 
 ## 🛠️ Implementation
-<img width="943" height="548" alt="image" src="https://github.com/user-attachments/assets/9e7294f6-5109-4753-a766-d92cb168384a" />
+
+![Dashboard Screenshot](https://github.com/user-attachments/assets/9e7294f6-5109-4753-a766-d92cb168384a)
 
 ### Quality Monitoring Dashboard
 - Interactive GIS choropleth map of Tamil Nadu with all **31 districts** color-coded by WQI risk level
@@ -388,6 +393,7 @@ Download CSV Log:       Exportable forecast record
 ---
 
 ### Index Calculators (Manual Computation Tools)
+
 **WQI Calculator** — accepts pH, DO, TDS, NO₃, Cl, F inputs → returns WQI score and class
 
 **HHI Calculator** — accepts contaminant concentrations (As, Pb, Cd, Cr, Fe), exposure factors (IR, EF, ED, BW, AT), and RfD values → returns HHI score and risk level
@@ -413,7 +419,8 @@ HHI: 0.54 – 0.94 → Low Risk
 ---
 
 ## 📈 Results and Discussion
-<img width="846" height="776" alt="image" src="https://github.com/user-attachments/assets/4b3923f8-6a2f-4b82-bdf3-c5e6de4d7e91" />
+
+![Results](https://github.com/user-attachments/assets/4b3923f8-6a2f-4b82-bdf3-c5e6de4d7e91)
 
 ### Model Performance
 
@@ -465,8 +472,9 @@ HHI: 0.54 – 0.94 → Low Risk
 | 31   | Virudhunagar      | 25.61         | 0.640         |
 
 ---
-<img width="975" height="387" alt="image" src="https://github.com/user-attachments/assets/aad5a134-5603-4543-831a-f989e68a32f7" />
-<img width="967" height="390" alt="image" src="https://github.com/user-attachments/assets/a0530011-49f8-4661-b60f-480bb08e0a21" />
+
+![Confusion Matrix WQI](https://github.com/user-attachments/assets/aad5a134-5603-4543-831a-f989e68a32f7)
+![Confusion Matrix HHI](https://github.com/user-attachments/assets/a0530011-49f8-4661-b60f-480bb08e0a21)
 
 ### Key Findings
 
@@ -552,8 +560,8 @@ HHI: 0.54 – 0.94 → Low Risk
 - **Explainability Modules:** Attention weight visualization, feature attribution maps, and contamination pathway explanation for policy transparency
 - **Policy Decision-Support Dashboard:** Deploy as a full-scale governance tool with automated district-wise sustainability reports and health risk advisories
 
+---
+
 ## 🎥 Implementation Video
 
-[![Implementation Demo — Click to Watch](https://img.shields.io/badge/▶%20Watch%20Demo-Google%20Drive-blue?style=for-the-badge&logo=google-drive)]([https://drive.google.com/file/d/1eXqHBE5Cw6MvTYNJZwCWQD_Zvpti5Yv_/view?usp=sharing](https://drive.google.com/file/d/13OqrraxRf4aajwzO4FncQ4xlKfB_1g-A/view?usp=sharing))
-
-
+[![Watch Demo on Google Drive](https://img.shields.io/badge/▶%20Watch%20Demo-Google%20Drive-blue?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/13OqrraxRf4aajwzO4FncQ4xlKfB_1g-A/view?usp=sharing)
