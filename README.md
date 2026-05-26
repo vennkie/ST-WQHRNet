@@ -1,6 +1,6 @@
 # 🌊 ST-WQHRNet: A Spatio-Temporal Transformer for Multi-Task Groundwater Quality and Health Risk Assessment in Tamil Nadu
 
-> **📽️ Product Preview:** [Watch on Google Drive](https://drive.google.com/file/d/13OqrraxRf4aajwzO4FncQ4xlKfB_1g-A/view?usp=sharing)
+> **📽️ Product link **: https://stwqhrnettamiladu.pythonanywhere.com/
 
 ---
 
